@@ -2,6 +2,7 @@ package abika.sinau.mycalorietracker.di
 
 import abika.sinau.core.domain.DefaultPreferences
 import abika.sinau.core.domain.preferences.Preferences
+import abika.sinau.core.domain.use_case.FilterOutDigits
 import android.app.Application
 import android.content.Context.MODE_PRIVATE
 import android.content.SharedPreferences
@@ -30,5 +31,11 @@ object AppModule {
     @Singleton
     fun providePreferences(sharedPreferences: SharedPreferences): Preferences {
         return DefaultPreferences(sharedPreferences)
+    }
+
+    @Provides
+    @Singleton
+    fun provideFilterOutDigitsUseCase(): FilterOutDigits {
+        return FilterOutDigits()
     }
 }

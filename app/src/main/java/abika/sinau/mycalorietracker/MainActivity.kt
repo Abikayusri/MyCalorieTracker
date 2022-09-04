@@ -3,27 +3,36 @@ package abika.sinau.mycalorietracker
 import abika.sinau.core.navigation.Route
 import abika.sinau.mycalorietracker.navigation.navigate
 import abika.sinau.mycalorietracker.ui.theme.MyCalorieTrackerTheme
+import abika.sinau.onboarding_presentation.age.AgeScreen
 import abika.sinau.onboarding_presentation.gender.GenderScreen
 import abika.sinau.onboarding_presentation.welcome.WelcomeScreen
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.material.rememberScaffoldState
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             MyCalorieTrackerTheme {
                 val navController = rememberNavController()
+                val scaffoldState = rememberScaffoldState()
+
                 NavHost(navController = navController, startDestination = Route.WELCOME) {
                     composable(Route.WELCOME) {
                         WelcomeScreen(onNavigate = navController::navigate)
                     }
                     composable(Route.AGE) {
-
+                        AgeScreen(
+                            scaffoldState = scaffoldState,
+                            onNavigate = navController::navigate
+                        )
                     }
                     composable(Route.GENDER) {
                         GenderScreen(onNavigate = navController::navigate)
