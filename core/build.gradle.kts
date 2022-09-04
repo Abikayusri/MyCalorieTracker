@@ -1,5 +1,5 @@
 apply {
-    from("$rootDir/gradle/script/base-module.gradle")
+    from("$rootDir/base-module.gradle")
 }
 
 dependencies {

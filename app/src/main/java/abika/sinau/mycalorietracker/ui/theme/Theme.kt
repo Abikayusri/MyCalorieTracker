@@ -1,10 +1,13 @@
 package abika.sinau.mycalorietracker.ui.theme
 
+import abika.sinau.core_ui.Dimensions
+import abika.sinau.core_ui.LocalSpacing
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.darkColors
 import androidx.compose.material.lightColors
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 
 private val DarkColorPalette = darkColors(
     primary = Purple200,
@@ -38,10 +41,12 @@ fun MyCalorieTrackerTheme(
         LightColorPalette
     }
 
-    MaterialTheme(
-        colors = colors,
-        typography = Typography,
-        shapes = Shapes,
-        content = content
-    )
+    CompositionLocalProvider(LocalSpacing provides Dimensions()) {
+        MaterialTheme(
+            colors = colors,
+            typography = Typography,
+            shapes = Shapes,
+            content = content
+        )
+    }
 }
