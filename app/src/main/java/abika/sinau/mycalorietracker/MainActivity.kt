@@ -3,6 +3,7 @@ package abika.sinau.mycalorietracker
 import abika.sinau.core.navigation.Route
 import abika.sinau.mycalorietracker.navigation.navigate
 import abika.sinau.mycalorietracker.ui.theme.MyCalorieTrackerTheme
+import abika.sinau.onboarding_presentation.gender.GenderScreen
 import abika.sinau.onboarding_presentation.welcome.WelcomeScreen
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -25,7 +26,7 @@ class MainActivity : ComponentActivity() {
 
                     }
                     composable(Route.GENDER) {
-
+                        GenderScreen(onNavigate = navController::navigate)
                     }
                     composable(Route.HEIGHT) {
 
