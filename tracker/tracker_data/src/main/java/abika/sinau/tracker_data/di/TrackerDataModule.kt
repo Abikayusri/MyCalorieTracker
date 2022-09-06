@@ -2,6 +2,8 @@ package abika.sinau.tracker_data.di
 
 import abika.sinau.tracker_data.OpenFoodApi
 import abika.sinau.tracker_data.local.TrackerDatabase
+import abika.sinau.tracker_data.repository.TrackerRepositoryImpl
+import abika.sinau.tracker_domain.repository.TrackerRepository
 import android.app.Application
 import androidx.room.Room
 import dagger.Module
@@ -52,5 +54,17 @@ object TrackerDataModule {
             TrackerDatabase::class.java,
             "tracker_db"
         ).build()
+    }
+
+    @Provides
+    @Singleton
+    fun provideTrackerRepository(
+        api: OpenFoodApi,
+        db: TrackerDatabase
+    ): TrackerRepository {
+        return TrackerRepositoryImpl(
+            dao = db.dao,
+            api = api
+        )
     }
 }
