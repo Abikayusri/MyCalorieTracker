@@ -11,6 +11,7 @@ import abika.sinau.onboarding_presentation.height.HeightScreen
 import abika.sinau.onboarding_presentation.nutrient_goal.NutrientGoalScreen
 import abika.sinau.onboarding_presentation.weight.WeightScreen
 import abika.sinau.onboarding_presentation.welcome.WelcomeScreen
+import abika.sinau.tracker_presentation.tracker_overview.TrackerOverviewScreen
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -67,7 +68,9 @@ class MainActivity : ComponentActivity() {
                         GoalScreen(onNavigate = navController::navigate)
                     }
                     composable(Route.TRACKER_OVERVIEW) {
-
+                        TrackerOverviewScreen(
+                            onNavigate = navController::navigate
+                        )
                     }
                     composable(Route.SEARCH) {
 
