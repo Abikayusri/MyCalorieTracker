@@ -54,7 +54,7 @@ fun SearchTextField(
                 }
             ),
             keyboardOptions = KeyboardOptions(
-                imeAction = ImeAction.Search
+                imeAction = ImeAction.Search,
             ),
             modifier = Modifier
                 .clip(RoundedCornerShape(5.dp))
@@ -69,7 +69,7 @@ fun SearchTextField(
                 .padding(end = spacing.spaceMedium)
                 .onFocusChanged { onFocusChanged(it) }
         )
-        if (shouldShowHint) {
+        if(shouldShowHint) {
             Text(
                 text = hint,
                 style = MaterialTheme.typography.body1,
