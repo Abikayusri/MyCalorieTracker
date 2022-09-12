@@ -2,9 +2,9 @@ package abika.sinau.tracker_presentation.tracker_overview
 
 import abika.sinau.core.util.UiEvent
 import abika.sinau.core_ui.LocalSpacing
+import abika.sinau.tracker_presentation.tracker_overview.components.DaySelector
 import abika.sinau.tracker_presentation.tracker_overview.components.NutrientsHeader
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -26,6 +26,20 @@ fun TrackerOverviewScreen(
     ) {
         item {
             NutrientsHeader(state = state)
+            Spacer(modifier = Modifier.height(spacing.spaceMedium))
+            DaySelector(
+                date = state.date,
+                onPreviousDayClick = {
+                    viewModel.onEvent(TrackerOverviewEvent.OnPreviousDayClick)
+                },
+                onNextDayClick = {
+                    viewModel.onEvent(TrackerOverviewEvent.OnNextDayClick)
+                },
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = spacing.spaceMedium)
+            )
+            Spacer(modifier = Modifier.height(spacing.spaceMedium))
         }
     }
 }
