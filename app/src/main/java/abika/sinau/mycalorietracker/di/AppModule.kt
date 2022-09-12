@@ -1,6 +1,6 @@
 package abika.sinau.mycalorietracker.di
 
-import abika.sinau.core.domain.DefaultPreferences
+import abika.sinau.core.data.preferences.DefaultPreferences
 import abika.sinau.core.domain.preferences.Preferences
 import abika.sinau.core.domain.use_case.FilterOutDigits
 import android.app.Application
